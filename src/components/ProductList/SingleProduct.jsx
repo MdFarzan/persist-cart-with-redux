@@ -1,9 +1,12 @@
 import React from "react";
 import { Button, Card, Col } from "react-bootstrap";
 import "./SingleProduct.style.css";
+import { useDispatch } from "react-redux";
 
 export default function SingleProduct(props) {
+  const dispatch = useDispatch();
   const { item } = { ...props };
+
   return (
     <Col lg={4}>
       <Card className="mb-4">
@@ -19,7 +22,22 @@ export default function SingleProduct(props) {
             <span className="item-price">{item.price}</span>
           </Col>
         </Card.Body>
-        <Button className="add-to-cart-btn" variant="primary">
+        <Button
+          className="add-to-cart-btn"
+          onClick={() =>
+            dispatch({
+              type: "ADD_TO_CART",
+              payload: {
+                id: item.id,
+                img: item.img,
+                name: item.name,
+                price: item.price,
+                qty: 1,
+              },
+            })
+          }
+          variant="primary"
+        >
           Add to Cart
         </Button>
       </Card>
