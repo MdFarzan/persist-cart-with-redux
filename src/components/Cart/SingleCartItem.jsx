@@ -20,13 +20,15 @@ export default function SingleCartItem({ item }) {
             <Card.Body>
               <Card.Title className="item-title p-0">{item.name}</Card.Title>
               <Card.Text>
-                <CartQtyInput />
+                <CartQtyInput itemQty={item.qty} itemId={item.id} />
               </Card.Text>
             </Card.Body>
           </Col>
           <Col xs={3} className="d-flex align-items-center">
             <span className="rupee-icon">₹</span>
-            <span className="item-price">{item.price}</span>
+            <span className="item-price">
+              {parseFloat(item.price) * item.qty}
+            </span>
           </Col>
         </Row>
         <Button

@@ -3,7 +3,10 @@ import { useSelector } from "react-redux";
 
 export default function TotalAmount() {
   const cartItems = useSelector((state) => state.cart);
-  const totalAmount = cartItems.reduce((a, b) => a + parseFloat(b.price), 0);
+  const totalAmount = cartItems.reduce(
+    (a, b) => a + parseFloat(b.price) * parseInt(b.qty),
+    0
+  );
   return (
     <Row>
       <Col xs={7}>

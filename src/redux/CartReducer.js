@@ -35,10 +35,33 @@ export default function CartReducer(state = { cart: [] }, action) {
       return { ...state, cart: [...restItems] };
       break;
     case "INC_QTY":
-      return { ...state };
+      var items = state.cart;
+
+      var items = items.filter((item) => {
+        if (item.id == action.payload.id) {
+          item.qty = item.qty + 1;
+          return item;
+        } else {
+          return item;
+        }
+      });
+
+      return { ...state, cart: [...items] };
       break;
     case "DEC_QTY":
-      return { ...state };
+      var items = state.cart;
+      var items = items.filter((item) => {
+        if (item.id == action.payload.id) {
+          item.qty = item.qty == 1 ? item.qty : item.qty - 1;
+          return item;
+        } else {
+          return item;
+        }
+      });
+
+      return { ...state, cart: [...items] };
+
+      return { ...state, cart: [...restItems, item[0]] };
       break;
 
     default:
