@@ -2,6 +2,7 @@ import { Button, Card, Col, Row } from "react-bootstrap";
 import { products } from "../../data/products";
 
 import SingleProduct from "./SingleProduct";
+import { useSelector } from "react-redux";
 
 export default function ProductList() {
   return (

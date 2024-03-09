@@ -1,11 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Card, Col } from "react-bootstrap";
 import "./SingleProduct.style.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function SingleProduct(props) {
   const dispatch = useDispatch();
   const { item } = { ...props };
+  const [addToCartStatus, setAddToCartStatus] = useState(false);
+
+  const addToCart = (id, img, name, price) => {
+    dispatch({
+      type: "ADD_TO_CART",
+      payload: {
+        id: id,
+        img: img,
+        name: name,
+        price: price,
+        qty: 1,
+      },
+    });
+
+    setAddToCartStatus(true);
+  };
+
+  const removeFromCart = (item_id) => {
+    dispatch({ type: "REMOVE_FROM_CART", payload: { id: item_id } });
+    setAddToCartStatus(false);
+  };
 
   return (
     <Col lg={4}>
@@ -22,24 +43,27 @@ export default function SingleProduct(props) {
             <span className="item-price">{item.price}</span>
           </Col>
         </Card.Body>
-        <Button
-          className="add-to-cart-btn"
-          onClick={() =>
-            dispatch({
-              type: "ADD_TO_CART",
-              payload: {
-                id: item.id,
-                img: item.img,
-                name: item.name,
-                price: item.price,
-                qty: 1,
-              },
-            })
-          }
-          variant="primary"
-        >
-          Add to Cart
-        </Button>
+        {addToCartStatus ? (
+          <Button
+            className="remove-from-cart-btn"
+            onClick={() => {
+              removeFromCart(item.id);
+            }}
+            variant="danger"
+          >
+            Remove from Cart
+          </Button>
+        ) : (
+          <Button
+            className="add-to-cart-btn"
+            onClick={() => {
+              addToCart(item.id, item.img, item.name, item.price);
+            }}
+            variant="primary"
+          >
+            Add to Cart
+          </Button>
+        )}
       </Card>
     </Col>
   );

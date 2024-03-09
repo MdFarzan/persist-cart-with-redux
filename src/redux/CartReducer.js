@@ -17,13 +17,16 @@ export default function CartReducer(state = { cart: [] }, action) {
             id: action.payload.id,
             name: action.payload.name,
             img: action.payload.img,
+            price: action.payload.price,
             qty: 1,
           },
         ],
       };
       break;
     case "REMOVE_FROM_CART":
-      return { ...state };
+      var cartItems = state.cart;
+      var restItems = cartItems.filter((item) => item.id != action.payload.id);
+      return { ...state, cart: [...restItems] };
       break;
     case "INC_QTY":
       return { ...state };

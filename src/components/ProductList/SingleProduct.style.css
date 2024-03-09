@@ -18,7 +18,7 @@
     font-size: 16px;
 }
 
-.add-to-cart-btn {
+.add-to-cart-btn, .remove-from-cart-btn {
     width: 100%;
     border-radius: 0;
 }
