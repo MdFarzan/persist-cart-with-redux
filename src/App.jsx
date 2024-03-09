@@ -7,6 +7,9 @@ import "./App.css";
 function App() {
   return (
     <>
+      <header className="bg-light py-2">
+        <h1 className="text-center ">Persist cart</h1>
+      </header>
       <Container fluid>
         <Row>
           <Col lg={8}>
