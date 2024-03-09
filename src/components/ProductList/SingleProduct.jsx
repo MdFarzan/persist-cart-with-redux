@@ -12,6 +12,8 @@ export default function SingleProduct(props) {
   let itemExists = cart.findIndex((cartItem) => cartItem.id == item.id);
   itemExists = itemExists === -1 ? false : true;
 
+  console.log(item.id, itemExists);
+
   const addToCart = (id, img, name, price, setAddToCartStatus) => {
     dispatch({
       type: "ADD_TO_CART",
@@ -29,13 +31,14 @@ export default function SingleProduct(props) {
   };
 
   const removeFromCart = (item_id) => {
+    setAddToCartStatus(false);
+
     dispatch({
       type: "REMOVE_FROM_CART",
       payload: {
         id: item_id,
       },
     });
-    setAddToCartStatus(false);
   };
 
   return (
@@ -53,7 +56,7 @@ export default function SingleProduct(props) {
             <span className="item-price">{item.price}</span>
           </Col>
         </Card.Body>
-        {addToCartStatus ? (
+        {itemExists ? (
           <Button
             className="remove-from-cart-btn"
             onClick={() => {
