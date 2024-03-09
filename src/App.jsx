@@ -20,6 +20,12 @@ function App() {
           </Col>
         </Row>
       </Container>
+      <footer className="bg-dark p-3 text-white text-center">
+        Built with ❤️ by &nbsp;
+        <a target="_blank" href="https://github.com/mdFarzan/">
+          Md. Farzan
+        </a>
+      </footer>
     </>
   );
 }
