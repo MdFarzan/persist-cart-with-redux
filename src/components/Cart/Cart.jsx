@@ -19,7 +19,7 @@ export default function Cart() {
           })
         ) : (
           <div className="empty-cart-wrap">
-            <img src="public/empty-cart.png" />
+            <img src="/empty-cart.png" />
           </div>
         )}
 
