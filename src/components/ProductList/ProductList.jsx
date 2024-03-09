@@ -5,10 +5,13 @@ import SingleProduct from "./SingleProduct";
 
 export default function ProductList() {
   return (
-    <Row>
-      {products.map((item, index) => {
-        return <SingleProduct key={`product-list-${index}`} item={item} />;
-      })}
-    </Row>
+    <section className="product-list-wrap pt-5 px-3">
+      <h3 className="mb-4">Latest products</h3>
+      <Row>
+        {products.map((item, index) => {
+          return <SingleProduct key={`product-list-${index}`} item={item} />;
+        })}
+      </Row>
+    </section>
   );
 }
