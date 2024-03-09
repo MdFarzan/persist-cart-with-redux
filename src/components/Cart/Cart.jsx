@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import SingleCartItem from "./SingleCartItem";
 import { Row } from "react-bootstrap";
+import TotalAmount from "./TotalAmount";
 
 export default function Cart() {
   const cart = useSelector((state) => state.cart);
@@ -18,6 +19,8 @@ export default function Cart() {
         ) : (
           <p>No items in cart</p>
         )}
+
+        {cart && cart.length > 0 && <TotalAmount />}
       </Row>
     </section>
   );

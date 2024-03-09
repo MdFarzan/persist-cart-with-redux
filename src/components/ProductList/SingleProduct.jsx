@@ -6,9 +6,13 @@ import { useDispatch, useSelector } from "react-redux";
 export default function SingleProduct(props) {
   const dispatch = useDispatch();
   const { item } = { ...props };
-  const [addToCartStatus, setAddToCartStatus] = useState(false);
 
-  const addToCart = (id, img, name, price) => {
+  const cart = useSelector((state) => state.cart);
+  const [addToCartStatus, setAddToCartStatus] = useState(false);
+  let itemExists = cart.findIndex((cartItem) => cartItem.id == item.id);
+  itemExists = itemExists === -1 ? false : true;
+
+  const addToCart = (id, img, name, price, setAddToCartStatus) => {
     dispatch({
       type: "ADD_TO_CART",
       payload: {
@@ -17,6 +21,7 @@ export default function SingleProduct(props) {
         name: name,
         price: price,
         qty: 1,
+        setAddToCartStatus: setAddToCartStatus,
       },
     });
 
@@ -24,7 +29,12 @@ export default function SingleProduct(props) {
   };
 
   const removeFromCart = (item_id) => {
-    dispatch({ type: "REMOVE_FROM_CART", payload: { id: item_id } });
+    dispatch({
+      type: "REMOVE_FROM_CART",
+      payload: {
+        id: item_id,
+      },
+    });
     setAddToCartStatus(false);
   };
 
@@ -57,7 +67,13 @@ export default function SingleProduct(props) {
           <Button
             className="add-to-cart-btn"
             onClick={() => {
-              addToCart(item.id, item.img, item.name, item.price);
+              addToCart(
+                item.id,
+                item.img,
+                item.name,
+                item.price,
+                setAddToCartStatus
+              );
             }}
             variant="primary"
           >

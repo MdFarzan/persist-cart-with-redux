@@ -1,8 +1,14 @@
 import { Button, Card, Col, Row } from "react-bootstrap";
 import CartQtyInput from "./CartQtyInput";
 import "./SingleCartItem.style.css";
+import { useDispatch } from "react-redux";
 
 export default function SingleCartItem({ item }) {
+  const dispatch = useDispatch();
+  const removeItem = (item_id) => {
+    dispatch({ type: "REMOVE_FROM_CART", payload: { id: item_id } });
+  };
+
   return (
     <Col xs={12}>
       <Card className="single-cart-item position-relative mb-4 py-2">
@@ -23,7 +29,11 @@ export default function SingleCartItem({ item }) {
             <span className="item-price">{item.price}</span>
           </Col>
         </Row>
-        <Button variant="primary" className="position-absolute item-remove-btn">
+        <Button
+          variant="primary"
+          className="position-absolute item-remove-btn"
+          onClick={() => removeItem(item.id)}
+        >
           &times;
         </Button>
       </Card>

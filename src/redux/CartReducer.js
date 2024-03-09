@@ -8,7 +8,7 @@ export default function CartReducer(state = { cart: [] }, action) {
       //   qty: 1,
       // });
 
-      console.log(state);
+      console.log("Add payload", action.payload);
       return {
         ...state,
         cart: [
@@ -19,13 +19,19 @@ export default function CartReducer(state = { cart: [] }, action) {
             img: action.payload.img,
             price: action.payload.price,
             qty: 1,
+            setAddToCartStatus: action.payload.setAddToCartStatus,
           },
         ],
       };
       break;
     case "REMOVE_FROM_CART":
       var cartItems = state.cart;
+      var deleteItem = cartItems.filter((item) => item.id == action.payload.id);
+      console.log("delete item: ", deleteItem);
+      deleteItem[0].setAddToCartStatus(false);
+
       var restItems = cartItems.filter((item) => item.id != action.payload.id);
+
       return { ...state, cart: [...restItems] };
       break;
     case "INC_QTY":
