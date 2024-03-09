@@ -1,0 +1,24 @@
+.product-img-wrap {
+    height: 198px;
+    overflow: hidden;
+    background: #fefefe;
+}
+
+.product-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-title{
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 16px;
+}
+
+.add-to-cart-btn {
+    width: 100%;
+    border-radius: 0;
+}
