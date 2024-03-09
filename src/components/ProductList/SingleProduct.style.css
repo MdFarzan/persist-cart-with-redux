@@ -22,3 +22,12 @@
     width: 100%;
     border-radius: 0;
 }
+
+.rupee-icon{
+    margin-right:5px;
+}
+.item-price, .rupee-icon{
+    font-size:20px;
+    font-weight: 500;
+}
+

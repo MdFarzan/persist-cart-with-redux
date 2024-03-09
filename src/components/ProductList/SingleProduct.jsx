@@ -10,8 +10,14 @@ export default function SingleProduct(props) {
         <div className="product-img-wrap">
           <Card.Img className="product-img" variant="top" src={item.img} />
         </div>
-        <Card.Body>
-          <Card.Title className="product-title">{item.name}</Card.Title>
+        <Card.Body className="row">
+          <Col xs={8}>
+            <Card.Title className="product-title">{item.name}</Card.Title>
+          </Col>
+          <Col xs={4} className="d-flex align-items-center">
+            <span className="rupee-icon">₹</span>
+            <span className="item-price">{item.price}</span>
+          </Col>
         </Card.Body>
         <Button className="add-to-cart-btn" variant="primary">
           Add to Cart
