@@ -9,10 +9,10 @@ export default function TotalAmount() {
   );
   return (
     <Row>
-      <Col xs={7}>
-        <h3>Total</h3>
+      <Col xs={4}>
+        <h4 className="text-primary">Total: </h4>
       </Col>
-      <Col xs={5}>
+      <Col xs={8}>
         <h3>₹ {totalAmount.toFixed(2)}</h3>
       </Col>
     </Row>

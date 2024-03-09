@@ -17,7 +17,7 @@ export default function SingleCartItem({ item }) {
             <Card.Img variant="top" src={item.img} />
           </Col>
           <Col xs={7}>
-            <Card.Body>
+            <Card.Body className="p-0">
               <Card.Title className="item-title p-0">{item.name}</Card.Title>
               <Card.Text>
                 <CartQtyInput itemQty={item.qty} itemId={item.id} />

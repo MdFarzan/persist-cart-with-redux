@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button, Form, InputGroup } from "react-bootstrap";
 import { useDispatch } from "react-redux";
+import "./CartQtyInput.style.css";
 
 export default function CartQtyInput({ itemId, itemQty }) {
   const dispatch = useDispatch();

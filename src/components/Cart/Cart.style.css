@@ -1,0 +1,22 @@
+.cart-wrap {
+    position: sticky;
+    top: 0;
+    right: 0;
+    
+}
+
+.cart-item-wrap{
+    overflow-y: auto;
+    overflow-x: hidden;
+    height:80vh;
+    padding-top:20px;
+    padding-bottom:20px;
+}
+
+
+.empty-cart-wrap img{
+    max-width:200px;
+    margin-left:auto;
+    margin-right:auto;
+    display:block;
+}

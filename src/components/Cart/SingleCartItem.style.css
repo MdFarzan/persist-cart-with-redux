@@ -3,10 +3,10 @@
 }
 
 .single-cart-item .item-remove-btn {
-    right: -20px;
-    top: -20px;
-    width: 40px;
-    height: 40px;
+    right: -15px;
+    top: -15px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     font-size: 28px;
     font-weight: 500;
@@ -14,3 +14,15 @@
     justify-content: center;
     align-items: center;
 }
+
+.single-cart-item {
+    border-radius: 0;
+}
+
+.cart-item-wrap .col-12:last-child .single-cart-item{
+    margin-bottom:0 !important;
+}
+
+/* .single-cart-item:last-child{
+    margin-bottom:0 !important;
+} */
