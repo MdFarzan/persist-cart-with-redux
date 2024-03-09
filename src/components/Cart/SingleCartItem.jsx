@@ -1,5 +1,6 @@
 import { Button, Card, Col, Row } from "react-bootstrap";
 import CartQtyInput from "./CartQtyInput";
+import "./SingleCartItem.style.css";
 
 export default function SingleCartItem() {
   return (
